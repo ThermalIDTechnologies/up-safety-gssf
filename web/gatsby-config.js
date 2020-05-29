@@ -1,9 +1,9 @@
 require('dotenv').config()
 module.exports = {
   siteMetadata: {
-    title: `change me`,
-    description: `change me`,
-    author: `your info here`,
+    title: `UP Safety Solutions`,
+    description: `Safety equipment`,
+    author: `Nathan Dalton ndaltondev@gmail.com`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -36,7 +36,6 @@ module.exports = {
       token: process.env.REACT_APP_SANITY_API_TOKEN
 		}
 	},
-	`gatsby-plugin-sass`
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

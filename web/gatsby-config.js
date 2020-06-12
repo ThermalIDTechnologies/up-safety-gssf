@@ -1,4 +1,7 @@
-require('dotenv').config()
+require('dotenv').config({
+  path: `.env`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `UP Safety Solutions`,
@@ -31,9 +34,9 @@ module.exports = {
 	{
 		resolve: 'gatsby-source-sanity',
 		options: {
-			projectId: process.env.REACT_APP_SANITY_PROJECT_ID,
-      dataset: process.env.REACT_APP_SANITY_DATASET,
-      token: process.env.REACT_APP_SANITY_API_TOKEN
+			projectId: `${process.env.REACT_APP_SANITY_PROJECT_ID}`,
+      dataset: `${process.env.REACT_APP_SANITY_DATASET}`,
+      token: `${process.env.REACT_APP_SANITY_API_TOKEN}`
 		}
 	},
     // this (optional) plugin enables Progressive Web App + Offline functionality

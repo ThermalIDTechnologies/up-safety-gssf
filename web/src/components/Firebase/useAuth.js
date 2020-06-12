@@ -9,7 +9,7 @@ function useAuth() {
 
   useEffect(() => {
     let unsubscribe
-    let publicProfileUnsubscribe
+    let customerProfileUnsubscribe
 
     loadFirebaseDependencies.then((app) => {
       const firebaseInstance = getFirebaseInstance(app)
@@ -19,43 +19,43 @@ function useAuth() {
         if (userResult) {
           setUser(userResult)
           // get user custom claims
-          /*setLoading(true);
-                    Promise.all([
-                        firebaseInstance.getUserProfile({ userId: userResult.uid }),
-                        firebaseInstance.auth.currentUser.getIdTokenResult(true),
-                    ]).then((result) => {
-                        const publicProfileResult = result[0]
-                        const token = result[1]
+          setLoading(true)
+          Promise.all([
+            firebaseInstance.getUserProfile({ userId: userResult.uid }),
+            firebaseInstance.auth.currentUser.getIdTokenResult(true),
+          ]).then((result) => {
+            const customerProfileResult = result[0]
+            const token = result[1]
 
-                        if (publicProfileResult.empty) {
-                            publicProfileUnsubscribe = firebaseInstance.db
-                              .collection("publicProfiles")
-                              .where("userId", "==", userResult.uid)
-                              .onSnapshot((snapshot) => {
-                                  const publicProfileDoc = snapshot.docs[0]
-                                  if (publicProfileDoc && publicProfileDoc.id) {
-                                      setUser({
-                                          ...userResult,
-                                          admin: token.claims.admin,
-                                          username: publicProfileDoc.id,
-                                      })
-                                  }
+            if (customerProfileResult.empty) {
+              customerProfileUnsubscribe = firebaseInstance.db
+                .collection("customerProfiles")
+                .where("userId", "==", userResult.uid)
+                .onSnapshot((snapshot) => {
+                  const customerProfileDoc = snapshot.docs[0]
+                  if (customerProfileDoc && customerProfileDoc.id) {
+                    setUser({
+                      ...userResult,
+                      admin: token.claims.admin,
+                      username: customerProfileDoc.id,
+                    })
+                  }
 
-                                  setLoading(false)
-                              })
-                        } else {
-                            const publicProfileDoc = publicProfileResult.docs[0]
-                            if (publicProfileDoc && publicProfileDoc.id) {
-                                setUser({
-                                    ...userResult,
-                                    admin: token.claims.admin,
-                                    username: publicProfileDoc.id,
-                                })
-                            }
+                  setLoading(false)
+                })
+            } else {
+              const customerProfileDoc = customerProfileResult.docs[0]
+              if (customerProfileDoc && customerProfileDoc.id) {
+                setUser({
+                  ...userResult,
+                  admin: token.claims.admin,
+                  username: customerProfileDoc.id,
+                })
+              }
 
-                            setLoading(false)
-                        }
-                    })*/
+              setLoading(false)
+            }
+          })
         } else {
           setUser(null)
         }
@@ -69,8 +69,8 @@ function useAuth() {
         unsubscribe()
       }
 
-      if (publicProfileUnsubscribe) {
-        publicProfileUnsubscribe()
+      if (customerProfileUnsubscribe) {
+        customerProfileUnsubscribe()
       }
     }
   }, [])

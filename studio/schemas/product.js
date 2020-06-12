@@ -14,7 +14,7 @@ export default {
       type: 'string',
       description: 'This comes from Shopify and cannot be changed',
       readOnly: true,
-      hidden: true
+      hidden: false
     },
     {
       name: 'deleted',
@@ -28,7 +28,7 @@ export default {
       type: 'string',
       description: 'This comes from Shopify and cannot be changed',
       readOnly: true,
-      hidden: true
+      hidden: false
     },
     {
       name: 'defaultPrice',

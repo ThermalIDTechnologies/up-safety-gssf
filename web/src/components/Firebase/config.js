@@ -1,7 +1,5 @@
-require('dotenv').config()
-
 const firebaseConfig = {
-  apiKey: process.env.FIREBASE_API_KEY,
+  apiKey: "AIzaSyAZiGktYkAk_IsAKn0-4s5Kl3bNqayVXmE",
   authDomain: "up-safety-solutions.firebaseapp.com",
   databaseURL: "https://up-safety-solutions.firebaseio.com",
   projectId: "up-safety-solutions",

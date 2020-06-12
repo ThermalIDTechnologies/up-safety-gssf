@@ -45,7 +45,7 @@ exports.handler = async (event, context) => {
     const product = {
       _type: 'product',
       _id: data.id.toString(),
-      productId: data.id,
+      productId: data.id.toString(),
       title: data.title,
       defaultPrice: data.variants[0].price,
       slug: {

@@ -62,7 +62,7 @@ exports.handler = async (event, context) => {
       .then(res => {
         console.log(`Successfully updated/patched Product ${data.id} in Sanity`);
 
-        if (data.variants.length > 1) {
+        if (data.variants.length >= 1) {
           hasVariantsToSync = true;
 
           return Promise.all(data.variants.map(variant => {
@@ -71,7 +71,7 @@ exports.handler = async (event, context) => {
               _id: variant.id.toString(),
               productId: data.id,
               variantId: variant.id,
-              title: data.title,
+              title: variant.title,
               variantTitle: variant.title,
               sku: variant.sku,
               price: variant.price

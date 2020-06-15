@@ -4,13 +4,13 @@ export default {
   type: 'document',
   fields: [
     {
-      name: 'title',
-      title: 'Title',
+      name: 'variantTitle',
+      title: 'Variant Title',
       type: 'string'
     },
     {
-      name: 'variantTitle',
-      title: 'Variant Title',
+      name: 'title',
+      title: 'Title',
       type: 'string'
     },
     {
@@ -19,23 +19,23 @@ export default {
       type: 'string',
       description: 'This comes from Shopify and cannot be changed',
       readOnly: true,
-      hidden: true
+      hidden: false
     },
     {
       name: 'productId',
       title: 'Product ID',
-      type: 'string',
+      type: 'number',
       description: 'This comes from Shopify and cannot be changed',
       readOnly: true,
-      hidden: true
+      hidden: false
     },
     {
       name: 'variantId',
       title: 'Variant ID',
-      type: 'string',
+      type: 'number',
       description: 'This comes from Shopify and cannot be changed',
       readOnly: true,
-      hidden: true
+      hidden: false
     },
     {
       name: 'price',

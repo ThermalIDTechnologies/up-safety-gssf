@@ -26,5 +26,9 @@ export default () =>
         .schemaType('product')
         .child(S.documentTypeList('product').title('Products'))
         .icon(() => <span style={{ fontSize: '1.6rem' }} role='img'>🛍 </span>),
+      S.listItem()
+        .title('Product Variants')
+        .schemaType('productVariant')
+        .child(S.documentTypeList('productVariant').title('Product Variants')),
       ...S.documentTypeListItems().filter(listItem => !hiddenTypes.includes(listItem.getId()))
     ])

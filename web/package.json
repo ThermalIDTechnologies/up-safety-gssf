@@ -6,7 +6,7 @@
   "author": "You <your-email@domain.com>",
   "dependencies": {
     "@sanity/client": "^1.149.13",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "firebase": "^7.14.5",
     "fs": "^0.0.1-security",
     "gatsby": "^2.22.11",
